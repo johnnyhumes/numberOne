@@ -7,13 +7,19 @@ package numberone;
 
 /**
  *
- * @author John
+ * @author John and Annalise
  */
 public class NumberOne {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static int countDigits(int num){
+        int count = 0;
+        while(num > 0){
+            num = num/10;
+            count++;
+        }
+        
+        return count;
+    }
     public static void main(String[] args) {
         // TODO code application logic here
     }
