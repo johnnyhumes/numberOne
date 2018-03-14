@@ -20,8 +20,7 @@ public class NumberOne {
         
         return count;
     }
-    public static int nthDigitBack (int n, int num)
-        {
+    public static int nthDigitBack (int n, int num){
             int digitBack=0;
             int workingNum=num;
 
@@ -34,16 +33,40 @@ public class NumberOne {
 
             return digitBack;
         }
+    
+    public static int nthDigit (int n, int num){
+            int digit=0;
+            int workingNum=num;
+
+            for (int pos=countDigits(num); pos>=n; pos--)
+            {
+                //this works now
+                digit= workingNum%10;
+                workingNum=workingNum/10;
+                }
+
+            return digit;
+        }
+        
+        
+    
     public static void main(String[] args) {
         
         //some stuff to test stuff. very informative that.
         int digittest=12345;
-        for (int i=0; i<countDigits(digittest); i++)
+        for (int i=0; i<countDigits(digittest)+1; i++)
         {
         System.out.println(nthDigitBack(i,digittest));
         }
+        
+        for (int i=0; i<=countDigits(digittest)+1; i++)
+        {
+        System.out.println("the "+ i +"th digit is "+nthDigit(i,digittest));
+        }
+        
         // TODO code application logic here
     }
+    
   
     
 }
