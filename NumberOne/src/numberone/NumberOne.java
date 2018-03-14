@@ -35,18 +35,22 @@ public class NumberOne {
         }
     
     public static int nthDigit (int n, int num){
-            int digit=0;
+            int digit;
             int workingNum=num;
-
-            for (int pos=countDigits(num); pos>=n; pos--)
+            digit= nthDigitBack((countDigits(num))-n, num);
+            /*for (int pos=countDigits(num); pos>=n; pos--)
             {
-                //this works now
+                
                 digit= workingNum%10;
                 workingNum=workingNum/10;
                 }
-
+            */
             return digit;
         }
+    
+    public static void updateTally(int n, int num, int[] tally){
+    
+    }
         
         
     
