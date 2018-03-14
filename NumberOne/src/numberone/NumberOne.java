@@ -49,6 +49,10 @@ public class NumberOne {
         }
     
     public static void updateTally(int n, int num, int[] tally){
+        //untested but it should work, just determines the digit, and adds one to that index of the tally array.
+        //you know, probably. I'll test it later :D
+        
+        tally[((nthDigit(n,num))-1)]+=1;
     
     }
         
