@@ -25,9 +25,9 @@ public class NumberOne {
             int digitBack=0;
             int workingNum=num;
 
-            for (int pos=0; pos<n; pos++)
+            for (int pos=0; pos<=n; pos++)
             {
-                //this isn't working yet. need to make it so that num can be changed.
+                //this works now
                 digitBack= workingNum%10;
                 workingNum=workingNum/10;
                 }
@@ -40,7 +40,7 @@ public class NumberOne {
         int digittest=12345;
         for (int i=0; i<countDigits(digittest); i++)
         {
-        System.out.println(nthDigitBack(1,digittest));
+        System.out.println(nthDigitBack(i,digittest));
         }
         // TODO code application logic here
     }
