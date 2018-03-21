@@ -37,7 +37,7 @@ public class NumberOne {
     public static int nthDigit (int n, int num){
             int digit;
             int workingNum=num;
-            digit= nthDigitBack((countDigits(num))-n, num);
+            digit= nthDigitBack((countDigits(num))-n-1, num);
             /*for (int pos=countDigits(num); pos>=n; pos--)
             {
                 
@@ -52,8 +52,17 @@ public class NumberOne {
         //untested but it should work, just determines the digit, and adds one to that index of the tally array.
         //you know, probably. I'll test it later :D
         
-        tally[((nthDigit(n,num))-1)]+=1;
+        tally[((nthDigit(n,num)))]+=1;
     
+    }
+    
+    public static int[] nthDigitTally (int n, int[] nums)
+    {
+        int[] tally=new int[10];
+        for(int workingNum:nums){
+            updateTally(n,workingNum,tally);
+        }
+        return tally;
     }
         
         
@@ -72,6 +81,36 @@ public class NumberOne {
         System.out.println("the "+ i +"th digit is "+nthDigit(i,digittest));
         }
         
+        int[] tally = new int[10];
+        for (int member:tally)
+        {
+            System.out.print(member+" ");
+        }
+        updateTally(2,1072, tally);
+        System.out.print("\n");
+        for (int member:tally)
+        {
+            System.out.print(member+" ");
+        }
+         updateTally(2,1072, tally);
+        System.out.print("\n");
+        for (int member:tally)
+        {
+            System.out.print(+member+" ");
+        }
+        System.out.print("\n");
+         updateTally(3,1072, tally);
+        for (int member:tally)
+        {
+            System.out.print(member+" ");
+        }
+        
+        int[] enrollments = {12176,5476,543,3490,24892,28619,2595,603,2527,1465,1858};
+        int[] tallyresult= nthDigitTally(0,enrollments);
+        for(int num:tallyresult)
+        {
+            System.out.print(num+ " ");
+        }
         // TODO code application logic here
     }
     
