@@ -9,6 +9,8 @@ package numberone;
  *
  * @author John and Annalise
  */
+import java.io.File;
+import java.util.Scanner;
 public class NumberOne {
 
     public static int countDigits(int num){
@@ -65,9 +67,52 @@ public class NumberOne {
         return tally;
     }
         
+    public static int[] readMysteriousNumbers(File dataSet)throws Exception{
+        Scanner intReader = new Scanner(dataSet);
+        int arraySize=0;
+        int index=0;
+        Scanner indexReader = new Scanner (dataSet);
+        //while (whiteSpaceReader.hasNext(" ")){
+        //    numWs++;
+        //}
         
+        
+        while (indexReader.hasNext())
+        {
+            if (indexReader.hasNextInt())
+            {
+                arraySize++;
+                indexReader.nextInt();
+            }
+            else{
+                indexReader.next();
+            }
+        }
+       int[] dataNums = new int[arraySize];
+        while(intReader.hasNext())
+            {
+                if (intReader.hasNextInt())
+                {
+                    dataNums[index]=intReader.nextInt();
+                    index++;
+                    
+                }
+                else
+                {
+                    intReader.next();
+                }
+        }
+
+        
+
+                
+        
+        return dataNums;
+        
+    }
     
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Exception {
+        
         
         //some stuff to test stuff. very informative that.
         int digittest=12345;
@@ -106,14 +151,45 @@ public class NumberOne {
         }
         
         int[] enrollments = {12176,5476,543,3490,24892,28619,2595,603,2527,1465,1858};
-        int[] tallyresult= nthDigitTally(0,enrollments);
-        for(int num:tallyresult)
+        int[] tallyResult= nthDigitTally(0,enrollments);
+        for(int num:tallyResult)
         {
             System.out.print(num+ " ");
         }
         // TODO code application logic here
+        
+            File livejournal=new File ("livejournal.txt");
+
+            int[] dataSet = readMysteriousNumbers(livejournal);
+
+            
+            /*for(int member:dataSet)
+            {
+                System.out.println(member);
+            }*/
+            
+            for(int i=0; i<9; i++) //feeds dataset into digit tallyer, iterates from 1-9, 0 on far left, 9 on far right.
+            {
+                int [] numTally = nthDigitTally(i,dataSet);
+                for( int member:numTally)
+                {
+                    System.out.print(member+" ");
+                }
+                System.out.println("counts of digit in" + i+ " pos");
+            }
+
+
+    
+        
     }
+}
+
+ 
+ 
+
+        // TODO code application logic here
+    
     
   
     
-}
+
